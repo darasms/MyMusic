@@ -1,10 +1,7 @@
 package com.ciandt.summit.bootcamp2022.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,8 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Artistas")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArtistEntity {
@@ -23,7 +19,7 @@ public class ArtistEntity {
     @Column(name = "Id", nullable = false)
     private String id;
 
-    @Column(name = "Nome")
+    @Column(name = "Nome", columnDefinition = "TEXT")
     private String name;
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)

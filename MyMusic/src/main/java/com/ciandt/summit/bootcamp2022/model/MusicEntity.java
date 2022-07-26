@@ -1,6 +1,7 @@
 package com.ciandt.summit.bootcamp2022.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class MusicEntity {
 
     @Id
@@ -22,7 +24,7 @@ public class MusicEntity {
     @Column(name = "Nome")
     private String name;
 
-    @Column(name = "ArtistaId")
+    @JoinColumn(name = "ArtistaId")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ArtistEntity artist;
 
